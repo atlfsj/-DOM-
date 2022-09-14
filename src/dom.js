@@ -39,10 +39,10 @@ window.dom = {
   },
   text(node, string){                   // 适配
     if(arguments.length ===2 ){
-      if('innerText' in node){
+      if('innerText' in node){          //ie
         node.innerText = string 
       }else{
-        node.textContent = string 
+        node.textContent = string       //chorm , firfox
       }
     }else if(arguments.length === 1){
       if('innerText' in node){
