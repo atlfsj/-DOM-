@@ -21,23 +21,23 @@ window.dom = {
         node.parentNode.removeChild(node)
         return node                   //保留节点的引用
     },
-    empty(node){
-    const array = []
-    let x = node.firstChild
-    while(x){
+    empty(node){                                      //const {childNodes} = node    ===  const childNodes = node.chidNodes
+        const array = []
+        let x = node.firstChild
+        while(x){
           array.push(dom.remove(node.firstChild))
           x = node.firstChild
-    }
+        }
         return array
     },
-   attr(node, name, value){ // 重载
+   attr(node, name, value){             // 重载
     if(arguments.length === 3){
       node.setAttribute(name, value)
     }else if(arguments.length === 2){
       return node.getAttribute(name)
     }
   },
-  text(node, string){ // 适配
+  text(node, string){                   // 适配
     if(arguments.length ===2 ){
       if('innerText' in node){
         node.innerText = string 
