@@ -84,7 +84,7 @@ window.dom = {
       node.classList.remove(className)
     },
     has(node, className){
-      return node.classList.contains(className)         //检查元素的类属性中是否存在指定的类型
+      return node.classList.contains(className)         //检查元素的类属性中是否存在指定的类型 classLIst MDN
     }
   },
   on(node, eventName, fn){
@@ -93,7 +93,7 @@ window.dom = {
   off(node, eventName, fn){
     node.removeEventListener(eventName, fn)
   },
-  find(selector, scope){
+  find(selector, scope){                                            //有范围就在scope里找；没有就在document找
     return (scope || document).querySelectorAll(selector)
   },
   parent(node){
@@ -106,12 +106,12 @@ window.dom = {
     return Array.from(node.parentNode.children)
     .filter(n=>n!==node)
   },
-  next(node){
-    let x = node.nextSibling
-    while(x && x.nodeType === 3){
+  next(node){                                   
+    let x = node.nextSibling                
+    while(x && x.nodeType === 3){           //找文本节点的下一个节点
       x = x.nextSibling
     }
-    return x
+    return x                                //没了也得返回
   },
   previous(node){
     let x = node.previousSibling
@@ -120,7 +120,7 @@ window.dom = {
     }
     return x
   },
-  each(nodeList, fn){
+  each(nodeList, fn){                       //先在main.js里找到要操作的节点，再遍历
     for(let i=0;i<nodeList.length;i++){
       fn.call(null, nodeList[i])
     }
