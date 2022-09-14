@@ -38,13 +38,13 @@ window.dom = {
     }
   },
   text(node, string){                   // 适配
-    if(arguments.length ===2 ){
-      if('innerText' in node){          //ie
-        node.innerText = string 
+    if(arguments.length ===2 ){             //改写
+      if('innerText' in node){          
+        node.innerText = string         // ie
       }else{
-        node.textContent = string       //chorm , firfox
+        node.textContent = string       // chorm , firfox
       }
-    }else if(arguments.length === 1){
+    }else if(arguments.length === 1){       //只读
       if('innerText' in node){
         return node.innerText
       }else{
