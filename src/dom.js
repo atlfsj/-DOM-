@@ -76,7 +76,7 @@ window.dom = {
       }
     }
   },
-  class: {
+  class: {                                              // ？问题：在style里加了那add有嘛用
     add(node, className){
       node.classList.add(className)
     },
@@ -84,7 +84,7 @@ window.dom = {
       node.classList.remove(className)
     },
     has(node, className){
-      return node.classList.contains(className)
+      return node.classList.contains(className)         //检查元素的类属性中是否存在指定的类型
     }
   },
   on(node, eventName, fn){
