@@ -59,7 +59,7 @@ window.dom = {
       return node.innerHTML 
     }
   },
-  style(node, name, value){
+  style(node, name, value){                     //3种形式
     if(arguments.length===3){
       // dom.style(div, 'color', 'red')
       node.style[name] = value
